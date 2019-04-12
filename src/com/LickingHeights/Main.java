@@ -42,6 +42,9 @@ public class Main {
             year = keyboard.nextInt();
 
             System.out.println(Equations(q, m, year));
+            System.out.println(" ");
+            System.out.println(" ");
+
 
         }
     }
@@ -55,8 +58,10 @@ public class Main {
         int K = year % 100;
         int J = year / 100;
 
-            return (q + (13 * (m + 1) / 5) + K + (K / 4) + (J / 4) + (5 * J)) % 7;
-        }
+        int h = (q + (13 * (m + 1) / 5) + K + (K / 4) + (J / 4) + (5 * J)) % 7;
+        return h;
+    }
 }
+
 
 
