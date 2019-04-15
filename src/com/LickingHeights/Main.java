@@ -34,6 +34,7 @@ public class Main {
 
         while (loop) {
 
+            System.out.println(" ");
             System.out.println("What month were you born? (number value)");
             m = keyboard.nextInt();
 
@@ -44,7 +45,8 @@ public class Main {
             year = keyboard.nextInt();
 
             System.out.println(" ");
-            System.out.println(" ");
+            h = Equation(q,m,year);
+
 
             switch (h) {
                 case 0:
@@ -68,42 +70,36 @@ public class Main {
                 case 6:
                     day = "Friday";
                     break;
-                default: day = "Error";
+                default:
+                    day = "Error";
                     break;
+            }
+            if (day == "Saturday") {
+                poem = "Therefore, You work hard for a living,";
+            } else if (day == "Sunday") {
+                poem = "You are fair and wise and good in every way.";
+            } else if (day == "Monday") {
+                poem = "You must be fair of face!";
+            } else if (day == "Tuesday") {
+                poem = "You must have been born full of grace";
+            } else if (day == "Wednesday") {
+                poem = "You must be full of woe...";
+            } else if (day == "Thursday") {
+                poem = "You have far to go!";
+            } else if (day == "Friday") {
+                poem = "You really are loving and giving.";
+            } else {
+                poem = "There seems to have been an error. Please try again!";
+            }
 
-                System.out.println("You were born on a " + day);
-                System.out.println(" ");
-
-                if (day == "Saturday") {
-                    poem = "Therefore, You work hard for a living,";
-                }
-                else if (day == "Sunday" ){
-                    poem = "You are fair and wise and good in every way.";
-                }
-                else if (day == "Monday"){
-                    poem = "You must be fair of face!";
-                }
-                else if (day == "Tuesday"){
-                    poem = "You must have been born full of grace";
-                }
-                else if (day == "Wednesday"){
-                    poem = "You must be full of woe...";
-                }
-                else if (day == "Thursday"){
-                    poem = "You have far to go!";
-                }
-                else if (day == "Friday"){
-                    poem = "You really are loving and giving.";
-                }
-                else {
-                    poem = "There seems to have been an error. Please try again!";
-                }
-                System.out.println(poem);
+            System.out.println("You were born on a " + day);
+            System.out.println(poem);
 
         }
     }
 
-    public static int Equations(int q, int m, int year) {
+
+    public static int Equation(int q, int m, int year) {
         if (m == 1 || m == 2) {
             m += 12;
             year -= 1;
@@ -113,8 +109,11 @@ public class Main {
         int J = year / 100;
 
         int h = (q + (13 * (m + 1) / 5) + K + (K / 4) + (J / 4) + (5 * J)) % 7;
+        return h;
     }
 }
+
+
 
 
 
