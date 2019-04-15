@@ -18,6 +18,7 @@ public class Main {
         int year;
         int K; //Mod100 of year for the two ending numbers
         int J; //Tells century born
+        String day;
 
         //Poem
         System.out.println("Monday's child is fair of face,");
@@ -41,10 +42,33 @@ public class Main {
             System.out.println("And lastly, what year were you born?");
             year = keyboard.nextInt();
 
-            System.out.println(Equations(q, m, year));
             System.out.println(" ");
             System.out.println(" ");
 
+            switch (h) {
+                case 0:
+                    day = "Saturday";
+                    break;
+                case 1:
+                    day = "Sunday";
+                    break;
+                case 2:
+                    day = "Monday";
+                    break;
+                case 3:
+                    day = "Tuesday";
+                    break;
+                case 4:
+                    day = "Wednesday";
+                    break;
+                case 5:
+                    day = "Thursday";
+                    break;
+                case 6:
+                    day = "Friday";
+                    break;
+                default: day = "Error";
+                    break;
 
         }
     }
@@ -59,9 +83,9 @@ public class Main {
         int J = year / 100;
 
         int h = (q + (13 * (m + 1) / 5) + K + (K / 4) + (J / 4) + (5 * J)) % 7;
-        return h;
     }
 }
+
 
 
 
