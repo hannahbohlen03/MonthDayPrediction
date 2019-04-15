@@ -19,6 +19,7 @@ public class Main {
         int K; //Mod100 of year for the two ending numbers
         int J; //Tells century born
         String day;
+        String poem;
 
         //Poem
         System.out.println("Monday's child is fair of face,");
@@ -69,6 +70,35 @@ public class Main {
                     break;
                 default: day = "Error";
                     break;
+
+                System.out.println("You were born on a " + day);
+                System.out.println(" ");
+
+                if (day == "Saturday") {
+                    poem = "Therefore, You work hard for a living,";
+                }
+                else if (day == "Sunday" ){
+                    poem = "You are fair and wise and good in every way.";
+                }
+                else if (day == "Monday"){
+                    poem = "You must be fair of face!";
+                }
+                else if (day == "Tuesday"){
+                    poem = "You must have been born full of grace";
+                }
+                else if (day == "Wednesday"){
+                    poem = "You must be full of woe...";
+                }
+                else if (day == "Thursday"){
+                    poem = "You have far to go!";
+                }
+                else if (day == "Friday"){
+                    poem = "You really are loving and giving.";
+                }
+                else {
+                    poem = "There seems to have been an error. Please try again!";
+                }
+                System.out.println(poem);
 
         }
     }
