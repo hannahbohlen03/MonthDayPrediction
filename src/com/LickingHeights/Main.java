@@ -21,6 +21,7 @@ public class Main {
         int N; //Number of days in a given month
         String day;
         String poem;
+        String monthName;
 
         //Poem
         System.out.println("Monday's child is fair of face,");
@@ -41,11 +42,54 @@ public class Main {
             System.out.println("What month were you born? (number value)");
             m = keyboard.nextInt();
 
+            if (m==1){
+                monthName = "January";
+            }
+            else if(m==2){
+                monthName = "February";
+            }
+            else if(m==3){
+                monthName = "March";
+            }
+            else if(m==4){
+                monthName = "April";
+            }
+            else if(m==5){
+                monthName = "May";
+            }
+            else if(m==6){
+                monthName = "June";
+            }
+            else if(m==7){
+                monthName = "July";
+            }
+            else if(m==8){
+                monthName = "August";
+            }
+            else if(m==9){
+                monthName = "Septemer";
+            }
+            else if(m==10){
+                monthName = "October";
+            }
+            else if(m==11){
+                monthName = "November";
+            }
+            else if(m==12){
+                monthName = "December";
+            }
+            else {
+                monthName = "ERROR";
+            }
+
+
             System.out.println("And what day of the month were you born?");
             q = keyboard.nextInt();
 
             System.out.println("And lastly, what year were you born?");
             year = keyboard.nextInt();
+
+
 
 
             //Equation
@@ -107,8 +151,8 @@ public class Main {
                     break; }
 
 
-                //"You were born on a..!"
-            System.out.println("In " + year + ", " + );
+            //"You were born on a..!"
+            System.out.println("In " + year + ", " + monthName + " had " + N + " days in it.");
             System.out.println("You were born on a " + day + ".");
             System.out.println("You must " + poem);
         }
@@ -131,21 +175,23 @@ public class Main {
     public static int dayNumber(int m, int year){
         int N;
 
-        if (m==13 || m==3 || m==5 || m==7|| m==8 || m==10 || m==12){
+        if (m==1 || m==3 || m==5 || m==7|| m==8 || m==10 || m==12){
             return N = 31;
         }
         else if(m==4 || m==6 || m==9 || m== 11){
             return N = 30;
         }
-        else{
+        else if (m==2) {
             int leap;
-            leap = year%400;
-            if (leap==0){
+            leap = year % 400;
+            if (leap == 0) {
                 return N = 29;
-            }
-            else{
+            } else {
                 return N = 28;
             }
+        }
+        else {
+            return N = 0;
         }
     }
 }
