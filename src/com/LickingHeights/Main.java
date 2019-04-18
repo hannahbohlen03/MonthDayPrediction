@@ -42,92 +42,20 @@ public class Main {
             System.out.println("What month were you born? (number value)");
             m = keyboard.nextInt();
 
-            if (m==1){
-                monthName = "January";
-            }
-            else if(m==2){
-                monthName = "February";
-            }
-            else if(m==3){
-                monthName = "March";
-            }
-            else if(m==4){
-                monthName = "April";
-            }
-            else if(m==5){
-                monthName = "May";
-            }
-            else if(m==6){
-                monthName = "June";
-            }
-            else if(m==7){
-                monthName = "July";
-            }
-            else if(m==8){
-                monthName = "August";
-            }
-            else if(m==9){
-                monthName = "Septemer";
-            }
-            else if(m==10){
-                monthName = "October";
-            }
-            else if(m==11){
-                monthName = "November";
-            }
-            else if(m==12){
-                monthName = "December";
-            }
-            else {
-                monthName = "ERROR";
-            }
-
-
             System.out.println("And what day of the month were you born?");
             q = keyboard.nextInt();
 
             System.out.println("And lastly, what year were you born?");
             year = keyboard.nextInt();
 
-
-
-
             //Equation
             System.out.println(" ");
             h = Equation(q,m,year);
             N = dayNumber(m, year);
 
-
-            //Ifs and Switches
-
-
-            switch (h) {
-                case 0:
-                    poem = "work hard for a living.";
-                    break;
-                case 1:
-                    poem = "be fair and wise and good in every way.";
-                    break;
-                case 2:
-                    poem = "be fair of face!";
-                    break;
-                case 3:
-                    poem = "have been born full of grace.";
-                    break;
-                case 4:
-                    poem = "be full of woe...";
-                    break;
-                case 5:
-                    poem = "have far to go!";
-                    break;
-                case 6:
-                    poem = "be very loving and giving.";
-                    break;
-                default:
-                    poem = "ERROR";
-                    break; }
-                    
-                    day=weekday(h);
+            day = weekday(h);
+            poem = poemLine(h);
+            monthName=monthName(m);
 
 
             //"You were born on a..!"
@@ -136,8 +64,6 @@ public class Main {
             System.out.println("You must " + poem);
         }
     }
-
-
     public static int Equation(int q, int m, int year) {
         if (m == 1 || m == 2) {
             m += 12;
@@ -175,30 +101,59 @@ public class Main {
     }
     public static String weekday(int h){
         String day;
-        if(h == 0){
-            return day = "Saturday";
+        switch (h) {
+            case 0:day = "Saturday";
+            break;
+            case 1:  day = "Sunday";
+            break;
+            case 2:  day = "Monday";
+            break;
+            case 3:  day = "Tuesday";
+            break;
+            case 4:  day = "Wednesday";
+            break;
+            case 5:  day = "Thursday";
+            break;
+            case 6:  day = "Friday";
+            break;
+            default: day = "ERROR";
+            break;
         }
-        else if(h==1){
-            return day = "Sunday";
-        }
-        else if(h==2){
-            return day = "Monday";
-        }
-        else if(h==3){
-            return day = "Tuesday";
-        }
-        else if(h==4){
-            return day = "Wednesday";
-        }
-        else if(h==5){
-            return day = "Thursday";
-        }
-        else if(h==6){
-            return day = "Friday";
-        }
-        else{
-            return day = "ERROR";
-        }
+        return day;
+    }
+
+   
+    }
+
+    public static String poemLine(int h){
+        String poem;
+
+        switch (h) {
+            case 0:
+                poem = "work hard for a living.";
+                break;
+            case 1:
+                poem = "be fair and wise and good in every way.";
+                break;
+            case 2:
+                 poem = "be fair of face!";
+                break;
+            case 3:
+                 poem = "have been born full of grace.";
+                break;
+            case 4:
+                  poem = "be full of woe...";
+                break;
+            case 5:
+                 poem = "have far to go!";
+                break;
+            case 6:
+                 poem = "be very loving and giving.";
+                break;
+            default:
+                 poem = "ERROR";
+                break; }
+                return poem;
     }
 }
 
