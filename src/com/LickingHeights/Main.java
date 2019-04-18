@@ -35,8 +35,6 @@ public class Main {
         System.out.println(" ");
 
         while (loop) {
-
-
             //Asking User
             System.out.println(" ");
             System.out.println("What month were you born? (number value)");
@@ -48,15 +46,14 @@ public class Main {
             System.out.println("And lastly, what year were you born?");
             year = keyboard.nextInt();
 
-            //Equation
+
             System.out.println(" ");
             h = Equation(q,m,year);
             N = dayNumber(m, year);
-
             day = weekday(h);
             poem = poemLine(h);
             monthName=monthName(m);
-
+            dayNumber(m,year);
 
             //"You were born on a..!"
             System.out.println("In " + year + ", " + monthName + " had " + N + " days in it.");
@@ -79,45 +76,63 @@ public class Main {
     }
     public static int dayNumber(int m, int year){
         int N;
+        int leap;
+        leap = year % 400;
 
-        if (m==1 || m==3 || m==5 || m==7|| m==8 || m==10 || m==12){
-            return N = 31;
+        switch(m){
+            case 1 : N = 31;
+                break;
+            case 2 :
+                if (leap == 0) {
+                    N = 29;
+                } else {
+                    N = 28;
+                }
+                break;
+            case 3 : N = 31;
+                break;
+            case 4 : N = 30;
+                break;
+            case 5 : N = 31;
+                break;
+            case 6 : N = 30;
+                break;
+            case 7 : N = 31;
+                break;
+            case 8 : N = 31;
+                break;
+            case 9: N = 30;
+                break;
+            case 10 : N = 31;
+                break;
+            case 11 : N = 30;
+                break;
+            case 12 : N = 31;
+                break;
+            default: N = 0;
+                break;
         }
-        else if(m==4 || m==6 || m==9 || m== 11){
-            return N = 30;
-        }
-        else if (m==2) {
-            int leap;
-            leap = year % 400;
-            if (leap == 0) {
-                return N = 29;
-            } else {
-                return N = 28;
-            }
-        }
-        else {
-            return N = 0;
-        }
+        return N;
     }
     public static String weekday(int h){
         String day;
         switch (h) {
             case 0:day = "Saturday";
-            break;
+                break;
             case 1:  day = "Sunday";
-            break;
+                break;
             case 2:  day = "Monday";
-            break;
+                break;
             case 3:  day = "Tuesday";
-            break;
+                break;
             case 4:  day = "Wednesday";
-            break;
+                break;
             case 5:  day = "Thursday";
-            break;
+                break;
             case 6:  day = "Friday";
-            break;
+                break;
             default: day = "ERROR";
-            break;
+                break;
         }
         return day;
     }
@@ -165,24 +180,25 @@ public class Main {
                 poem = "be fair and wise and good in every way.";
                 break;
             case 2:
-                 poem = "be fair of face!";
+                poem = "be fair of face!";
                 break;
             case 3:
-                 poem = "have been born full of grace.";
+                poem = "have been born full of grace.";
                 break;
             case 4:
-                  poem = "be full of woe...";
+                poem = "be full of woe...";
                 break;
             case 5:
-                 poem = "have far to go!";
+                poem = "have far to go!";
                 break;
             case 6:
-                 poem = "be very loving and giving.";
+                poem = "be very loving and giving.";
                 break;
             default:
-                 poem = "ERROR";
-                break; }
-                return poem;
+                poem = "ERROR";
+                break;
+        }
+        return poem;
     }
 }
 
