@@ -99,30 +99,7 @@ public class Main {
 
 
             //Ifs and Switches
-            if(h == 0){
-                day = "Saturday";
-            }
-            else if(h==1){
-                day = "Sunday";
-            }
-            else if(h==2){
-                day = "Monday";
-            }
-            else if(h==3){
-                day = "Tuesday";
-            }
-            else if(h==4){
-                day = "Wednesday";
-            }
-            else if(h==5){
-                day = "Thursday";
-            }
-            else if(h==6){
-                day = "Friday";
-            }
-            else{
-                day = "ERROR";
-            }
+
 
             switch (h) {
                 case 0:
@@ -149,6 +126,8 @@ public class Main {
                 default:
                     poem = "ERROR";
                     break; }
+                    
+                    day=weekday(h);
 
 
             //"You were born on a..!"
@@ -192,6 +171,33 @@ public class Main {
         }
         else {
             return N = 0;
+        }
+    }
+    public static String weekday(int h){
+        String day;
+        if(h == 0){
+            return day = "Saturday";
+        }
+        else if(h==1){
+            return day = "Sunday";
+        }
+        else if(h==2){
+            return day = "Monday";
+        }
+        else if(h==3){
+            return day = "Tuesday";
+        }
+        else if(h==4){
+            return day = "Wednesday";
+        }
+        else if(h==5){
+            return day = "Thursday";
+        }
+        else if(h==6){
+            return day = "Friday";
+        }
+        else{
+            return day = "ERROR";
         }
     }
 }
